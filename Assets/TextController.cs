@@ -13,7 +13,9 @@ public class TextController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKey(KeyCode.Space))
-        print (text.text = "Spatie is ingedrukt");
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            text.text = "Spatie is ingedrukt";
+        }
     }
 }
