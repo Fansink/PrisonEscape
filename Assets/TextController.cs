@@ -16,9 +16,9 @@ public class TextController : MonoBehaviour {
         kleren_aan_kast, kleren_aan_in_de_kast_schoonmaakspullen, kleren_aan_in_de_kast_prullenbakken,
         // Schoonmaak kleren aan in de gang
         schoonmaak_kleren_aan_in_de_gang, schoonmaak_kleren_trap_op, schoonmaak_kleren_aan_vloer_onderzoeken,
-        schoonmaak_kleren_aan_terug_naar_kast, schoonmaak_kleren_aan_terug_in_cel, schoonmaak_kleren_bewaker_aanvallen,
+        schoonmaak_kleren_aan_terug_naar_kast, schoonmaak_kleren_aan_terug_in_cel,
         // Schoonmaak kleren aan bovenaan de trap
-        schoonmaak_kleren_bovenaan_trap 
+        schoonmaak_kleren_bovenaan_trap, schoonmaak_kleren_niet_wc, schoonmaak_kleren_bewaker_aanvallen
     }
 
     private States myState;
@@ -405,7 +405,9 @@ public class TextController : MonoBehaviour {
 
     void schoonmaak_kleren_aan_in_de_gang()
     {
-        text.text = "" +
+        text.text = "In de smerige gang van de gevangenis is weinig gebeurt terwijl je in de kast was. \n" +
+                    "De boel is nog steeds smerig, je celdeur staat open en de trap ziet er nog steeds \n" +
+                    "spannend uit.\n\n" +
                     //Acties
                     "Druk 'T' om de Trap op te lopen.\n" +
                     "Druk 'V' om de Vloer te onderzoeken.\n" +
@@ -455,11 +457,41 @@ public class TextController : MonoBehaviour {
 
     void schoonmaak_kleren_bovenaan_trap()
     {
-        text.text = "Laatste stuk" +
+        text.text = "Daar sta je dan oog in oog met een enorme bewaker. Hij kijkt je met " +
+                    "vragende ogen aan, nadat je 'Hallo' hebt gezegd.\n\n" +
+                    "Wat ben jij aan het doen? Vraagt hij.\n\n" +
                     // Acties
-                    "";
-        //if (Input.GetKeyDown(KeyCode.S)) { myState = States.---; }
-        //else if (Input.GetKeyDown(KeyCode.P)) { myState = States.---; }
+                    "Druk 'N' om te zeggen:'Niks, bemoei je met je eigen zaken.'\n" +
+                    "Druk 'T' om te zeggen:'Owh, dit is niet de wc?'\n" +
+                    "Druk 'S' om te zeggen:'Schoonmaken, wat denk je dan, dat ik voor de lol in zo'n pakje rond loop?' \n" +
+                    "Druk 'A' om de bewaker aan te vallen";
+        //if      (Input.GetKeyDown(KeyCode.N)) { myState = States.---; }
+        else if (Input.GetKeyDown(KeyCode.T)) { myState = States.schoonmaak_kleren_niet_wc; }
+        //else if (Input.GetKeyDown(KeyCode.S)) { myState = States.-- -; }
+        else if (Input.GetKeyDown(KeyCode.A)) { myState = States.schoonmaak_kleren_bewaker_aanvallen; }
+    }
+
+    void schoonmaak_kleren_niet_wc()
+    {
+        text.text = "Nee, dat is het niet!\n\n" +
+                    "Je bent gepakt en wordt hardhandig terug in de cel gezet.\n\n" +
+                    //Acties
+                    "Druk 'O' om het spel opnieuw te starten.";
+        if (Input.GetKeyDown(KeyCode.O)) { myState = States.cel; }
+    }
+
+    void schoonmaak_kleren_lol_in_pakje()
+    {
+        text.text = "'Dan mag je wel wat beter je best doen.' zegt de bewaker. Natuurlijk wel terecht want de \n" +
+                    "gevangenis is echt een zooitje. 'Jaja, ik weet het ik ben pas net begonnen en ik kan niet \n'" +
+                    "alles tegelijk." +
+                    //Acties
+                    "Druk op 'B' om te vragen waar de deur naar buiten is, je moet je water weggooien.\n" +
+                    "Druk op 'V' om je te verontschuldigen en te vragen waar je beter je best zou moeten doen.\n" +
+                    "Druk op 'W' om te zeggen 'Tsja, ik zou er ook niet in willen Wonen, maarja ik krijg ook maar per uur betaald.'";
+        if (Input.GetKeyDown(KeyCode.B)) { myState = States.---; }
+        else if (Input.GetKeyDown(KeyCode.V)) { myState = States.-- -; }
+        else if (Input.GetKeyDown(KeyCode.W)) { myState = States.-- -; }
     }
 
     void schoonmaak_kleren_bewaker_aanvallen()
