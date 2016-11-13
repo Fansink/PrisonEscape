@@ -10,13 +10,13 @@ public class TextController : MonoBehaviour {
     {
         cel, lakens_0, spiegel_0, spiegel_1, deur_0, lakens_1, spiegel_cel, kijken_spiegel, deur_1,
         gang_0, gang_1, gang_2, gang_3, vloer_0, vloer_1, kastdeur_0, kastdeur_1, trap_0, trap_1, trap_2,
-        in_de_kast_1, in_de_kast_schoonmaakspullen, in_de_kast_prullenbakken, kleren_aan_kast,
+        in_de_kast_1, in_de_kast_schoonmaakspullen, in_de_kast_prullenbakken,
         in_de_kast_kleren,
         // Schoonmaak kleren aan
         kleren_aan_kast, kleren_aan_in_de_kast_schoonmaakspullen, kleren_aan_in_de_kast_prullenbakken,
         // Schoonmaak kleren aan in de gang
-        schoonmaak_kleren_trap_op, schoonmaak_kleren_aan_vloer_onderzoeken, schoonmaak_kleren_aan_terug_naar_kast,
-        schoonmaak_kleren_aan_terug_in_cel, schoonmaak_kleren_bewaker_aanvallen,
+        schoonmaak_kleren_aan_in_de_gang, schoonmaak_kleren_trap_op, schoonmaak_kleren_aan_vloer_onderzoeken,
+        schoonmaak_kleren_aan_terug_naar_kast, schoonmaak_kleren_aan_terug_in_cel, schoonmaak_kleren_bewaker_aanvallen,
         // Schoonmaak kleren aan bovenaan de trap
         schoonmaak_kleren_bovenaan_trap
     }
@@ -57,6 +57,7 @@ public class TextController : MonoBehaviour {
         else if (myState == States.kleren_aan_in_de_kast_schoonmaakspullen) { kleren_aan_in_de_kast_schoonmaakspullen(); }
         else if (myState == States.kleren_aan_in_de_kast_prullenbakken) { kleren_aan_in_de_kast_prullenbakken(); }
 
+        else if (myState == States.schoonmaak_kleren_aan_in_de_gang) { schoonmaak_kleren_aan_in_de_gang(); }
         else if (myState == States.schoonmaak_kleren_trap_op) { schoonmaak_kleren_trap_op(); }
         else if (myState == States.schoonmaak_kleren_aan_vloer_onderzoeken) { schoonmaak_kleren_aan_vloer_onderzoeken(); }
         else if (myState == States.schoonmaak_kleren_aan_terug_naar_kast) { schoonmaak_kleren_aan_terug_naar_kast(); }
@@ -423,7 +424,7 @@ public class TextController : MonoBehaviour {
     {
         text.text = "Daar ga je, in je prachtige nieuwe outfit de trap op.\n" +
                     "Als je bovenaan de trap komt zie je een bewaker en hij ziet jou, \n" +
-                    "jullie kijken elkaar recht aan...";
+                    "jullie kijken elkaar recht aan..." +
                     //Acties
                     "Druk 'Z' om te Zwaaien en om te draaien.\n" +
                     "Druk 'H' om Hallo te zeggen en door te lopen.\n" +
@@ -436,7 +437,7 @@ public class TextController : MonoBehaviour {
     void schoonmaak_kleren_aan_vloer_onderzoeken()
     {
         text.text = "Nog steeds smerig daar veranderen je nieuwe kleren helemaal niks aan" +
-                    "Je hebt ook niet de stiekeme behoefte om de boel schoon te gaan maken...!";
+                    "Je hebt ook niet de stiekeme behoefte om de boel schoon te gaan maken...!\n\n" +
                     //Acties
                     "Druk 'O' om Op te staan.";
         if (Input.GetKeyDown(KeyCode.T)) { myState = States.schoonmaak_kleren_aan_in_de_gang; }
@@ -483,10 +484,10 @@ public class TextController : MonoBehaviour {
 
     void schoonmaak_kleren_bovenaan_trap()
     {
-        text.text = "" +
+        text.text = "Laatste stuk" +
                     // Acties
                     "";
-        if (Input.GetKeyDown(KeyCode.S)) { myState = States.---; }
-        else if (Input.GetKeyDown(KeyCode.P)) { myState = States.---; }
+        //if (Input.GetKeyDown(KeyCode.S)) { myState = States.---; }
+        //else if (Input.GetKeyDown(KeyCode.P)) { myState = States.---; }
     }
 }
