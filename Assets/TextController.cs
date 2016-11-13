@@ -11,41 +11,59 @@ public class TextController : MonoBehaviour {
         cel, lakens_0, spiegel_0, spiegel_1, deur_0, lakens_1, spiegel_cel, kijken_spiegel, deur_1,
         gang_0, gang_1, gang_2, gang_3, vloer_0, vloer_1, kastdeur_0, kastdeur_1, trap_0, trap_1, trap_2,
         in_de_kast_1, in_de_kast_schoonmaakspullen, in_de_kast_prullenbakken, kleren_aan_kast,
-        in_de_kast_kleren
-    };
+        in_de_kast_kleren,
+        // Schoonmaak kleren aan
+        kleren_aan_kast, kleren_aan_in_de_kast_schoonmaakspullen, kleren_aan_in_de_kast_prullenbakken,
+        // Schoonmaak kleren aan in de gang
+        schoonmaak_kleren_trap_op, schoonmaak_kleren_aan_vloer_onderzoeken, schoonmaak_kleren_aan_terug_naar_kast,
+        schoonmaak_kleren_aan_terug_in_cel, schoonmaak_kleren_bewaker_aanvallen,
+        // Schoonmaak kleren aan bovenaan de trap
+        schoonmaak_kleren_bovenaan_trap
+    }
+
     private States myState;
-    
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start() {
         myState = States.cel;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update() {
         print(myState);
-        if (myState == States.cel)                                  { cel(); }
-        else if (myState == States.lakens_0)                        { lakens_0(); }
-        else if (myState == States.spiegel_0)                       { spiegel_0(); }
-        else if (myState == States.deur_0)                          { deur_0(); }
-        else if (myState == States.spiegel_cel)                     { spiegel_cel(); }
-        else if (myState == States.lakens_1)                        { lakens_1(); }
-        else if (myState == States.spiegel_1)                       { spiegel_1(); }
-        else if (myState == States.kijken_spiegel)                  { kijken_spiegel(); }
-        else if (myState == States.deur_1)                          { deur_1(); }
-        else if (myState == States.gang_0)                          { gang_0(); }
-        else if (myState == States.trap_0)                          { trap_0(); }
-        else if (myState == States.vloer_0)                         { vloer_0(); }
-        else if (myState == States.vloer_1)                         { vloer_0(); }
-        else if (myState == States.kastdeur_0)                      { kastdeur_0(); }
-        else if (myState == States.kastdeur_1)                      { kastdeur_1(); }
-        else if (myState == States.gang_1)                          { gang_1(); }
-        else if (myState == States.gang_2)                          { gang_2(); }
-        else if (myState == States.gang_3)                          { gang_3(); }
-        else if (myState == States.in_de_kast_1)                    { in_de_kast_1(); }
-        else if (myState == States.in_de_kast_schoonmaakspullen)    { in_de_kast_schoonmaakspullen(); }
-        else if (myState == States.in_de_kast_prullenbakken)        { in_de_kast_prullenbakken(); }
-        else if (myState == States.in_de_kast_kleren)               { in_de_kast_kleren(); }
-        else if (myState == States.kleren_aan_kast)                 { kleren_aan_kast(); }
+        if (myState == States.cel) { cel(); }
+        else if (myState == States.lakens_0) { lakens_0(); }
+        else if (myState == States.spiegel_0) { spiegel_0(); }
+        else if (myState == States.deur_0) { deur_0(); }
+        else if (myState == States.spiegel_cel) { spiegel_cel(); }
+        else if (myState == States.lakens_1) { lakens_1(); }
+        else if (myState == States.spiegel_1) { spiegel_1(); }
+        else if (myState == States.kijken_spiegel) { kijken_spiegel(); }
+        else if (myState == States.deur_1) { deur_1(); }
+        else if (myState == States.gang_0) { gang_0(); }
+        else if (myState == States.trap_0) { trap_0(); }
+        else if (myState == States.vloer_0) { vloer_0(); }
+        else if (myState == States.vloer_1) { vloer_0(); }
+        else if (myState == States.kastdeur_0) { kastdeur_0(); }
+        else if (myState == States.kastdeur_1) { kastdeur_1(); }
+        else if (myState == States.gang_1) { gang_1(); }
+        else if (myState == States.gang_2) { gang_2(); }
+        else if (myState == States.gang_3) { gang_3(); }
+        else if (myState == States.in_de_kast_1) { in_de_kast_1(); }
+        else if (myState == States.in_de_kast_schoonmaakspullen) { in_de_kast_schoonmaakspullen(); }
+        else if (myState == States.in_de_kast_prullenbakken) { in_de_kast_prullenbakken(); }
+        else if (myState == States.in_de_kast_kleren) { in_de_kast_kleren(); }
+        else if (myState == States.kleren_aan_kast) { kleren_aan_kast(); }
+        else if (myState == States.kleren_aan_in_de_kast_schoonmaakspullen) { kleren_aan_in_de_kast_schoonmaakspullen(); }
+        else if (myState == States.kleren_aan_in_de_kast_prullenbakken) { kleren_aan_in_de_kast_prullenbakken(); }
+
+        else if (myState == States.schoonmaak_kleren_trap_op) { schoonmaak_kleren_trap_op(); }
+        else if (myState == States.schoonmaak_kleren_aan_vloer_onderzoeken) { schoonmaak_kleren_aan_vloer_onderzoeken(); }
+        else if (myState == States.schoonmaak_kleren_aan_terug_naar_kast) { schoonmaak_kleren_aan_terug_naar_kast(); }
+        else if (myState == States.schoonmaak_kleren_aan_terug_in_cel) { schoonmaak_kleren_aan_terug_in_cel(); }
+        else if (myState == States.schoonmaak_kleren_bewaker_aanvallen) { schoonmaak_kleren_bewaker_aanvallen(); }
+
+        else if (myState == States.schoonmaak_kleren_bovenaan_trap) { schoonmaak_kleren_bovenaan_trap(); }
 
     }
     void cel()
@@ -57,9 +75,9 @@ public class TextController : MonoBehaviour {
                         "Druk 'L' om naar de Lakens te kijken.\n" +
                         "Druk 'S' om naar de Spiegel te kijken.\n" +
                         "Druk 'D' om naar de Deur te kijken.";
-        if      (Input.GetKeyDown(KeyCode.L))   {myState = States.lakens_0;}
-        else if (Input.GetKeyDown(KeyCode.S))   {myState = States.spiegel_0;}
-        else if (Input.GetKeyDown(KeyCode.D))   {myState = States.deur_0;}
+        if (Input.GetKeyDown(KeyCode.L)) { myState = States.lakens_0; }
+        else if (Input.GetKeyDown(KeyCode.S)) { myState = States.spiegel_0; }
+        else if (Input.GetKeyDown(KeyCode.D)) { myState = States.deur_0; }
     }
 
     void lakens_0()
@@ -70,7 +88,7 @@ public class TextController : MonoBehaviour {
                     "Jeeeej, lang leve de gevangenis..!!?\n\n" +
                     // Acties
                     "Druk 'T' om Terug te gaan en verder te kijken in je cel";
-        if      (Input.GetKeyDown(KeyCode.T))    {myState = States.cel;}
+        if (Input.GetKeyDown(KeyCode.T)) { myState = States.cel; }
     }
 
     void spiegel_0()
@@ -82,8 +100,8 @@ public class TextController : MonoBehaviour {
                     // Acties
                     "Druk 'T' om Terug te gaan en verder te kijken in je cel.\n" +
                     "Druk 'P' om een stuk van de spiegel te Pakken";
-        if      (Input.GetKeyDown(KeyCode.T))   {myState = States.cel;}
-        else if (Input.GetKeyDown(KeyCode.P))   {myState = States.spiegel_cel;}
+        if (Input.GetKeyDown(KeyCode.T)) { myState = States.cel; }
+        else if (Input.GetKeyDown(KeyCode.P)) { myState = States.spiegel_cel; }
 
     }
 
@@ -95,7 +113,7 @@ public class TextController : MonoBehaviour {
                     "Maar hoe...?\n\n" +
                     // Acties
                     "Druk 'T' om Terug te gaan en verder te kijken in je cel";
-        if      (Input.GetKeyDown(KeyCode.T))   {myState = States.cel;}
+        if (Input.GetKeyDown(KeyCode.T)) { myState = States.cel; }
     }
 
     //**************************************************
@@ -111,9 +129,9 @@ public class TextController : MonoBehaviour {
                     "Druk 'L' om naar de Lakens te kijken.\n" +
                     "Druk 'S' om naar de Spiegel te kijken.\n" +
                     "Druk 'D' om naar de Deur te kijken.";
-        if      (Input.GetKeyDown(KeyCode.L))   {myState = States.lakens_1;}
-        else if (Input.GetKeyDown(KeyCode.S))   {myState = States.spiegel_1;}
-        else if (Input.GetKeyDown(KeyCode.D))   {myState = States.deur_1;}
+        if (Input.GetKeyDown(KeyCode.L)) { myState = States.lakens_1; }
+        else if (Input.GetKeyDown(KeyCode.S)) { myState = States.spiegel_1; }
+        else if (Input.GetKeyDown(KeyCode.D)) { myState = States.deur_1; }
     }
 
     void lakens_1()
@@ -122,7 +140,7 @@ public class TextController : MonoBehaviour {
                     "lakens kijkt wordt het er niet beter op.\n\n" +
                     // Acties
                     "Druk 'T' om Terug te gaan en verder te kijken in je cel";
-        if      (Input.GetKeyDown(KeyCode.T))   {myState = States.spiegel_cel;}
+        if (Input.GetKeyDown(KeyCode.T)) { myState = States.spiegel_cel; }
     }
 
     void spiegel_1()
@@ -132,8 +150,8 @@ public class TextController : MonoBehaviour {
                     // Acties
                     "Druk 'K' om een stap dichterbij te doen en naar jezelf te Kijken in de spiegel.\n" +
                     "Druk 'T' om Terug te gaan en verder te kijken in je cel.";
-        if      (Input.GetKeyDown(KeyCode.K))   {myState = States.kijken_spiegel;}
-        else if (Input.GetKeyDown(KeyCode.T))   {myState = States.spiegel_cel;}
+        if (Input.GetKeyDown(KeyCode.K)) { myState = States.kijken_spiegel; }
+        else if (Input.GetKeyDown(KeyCode.T)) { myState = States.spiegel_cel; }
     }
 
     void kijken_spiegel()
@@ -141,7 +159,7 @@ public class TextController : MonoBehaviour {
         text.text = "Nope, je ziet er nog steeds niet uit...\n\n" +
                     // Acties
                     "Druk 'T' om een stap Terug te doen.";
-        if      (Input.GetKeyDown(KeyCode.T))   {myState = States.spiegel_1;}
+        if (Input.GetKeyDown(KeyCode.T)) { myState = States.spiegel_1; }
     }
 
     void deur_1()
@@ -153,8 +171,8 @@ public class TextController : MonoBehaviour {
                     //Acties
                     "Druk 'O' om de deur te Openen.\n" +
                     "Druk 'T' om Terug te gaan en verder te kijken in je cel.";
-        if      (Input.GetKeyDown(KeyCode.O))   {myState = States.gang_0;}
-        else if (Input.GetKeyDown(KeyCode.T))   {myState = States.spiegel_cel;}
+        if (Input.GetKeyDown(KeyCode.O)) { myState = States.gang_0; }
+        else if (Input.GetKeyDown(KeyCode.T)) { myState = States.spiegel_cel; }
     }
 
     void gang_0()
@@ -165,8 +183,8 @@ public class TextController : MonoBehaviour {
                     //Acties
                     "Druk 'O' om de gang te gaan Onderzoeken.\n" +
                     "Druk 'T' om weer Terug je cel in te gaan.";
-        if (Input.GetKeyDown(KeyCode.O))        { myState = States.gang_1; }
-        else if (Input.GetKeyDown(KeyCode.T))   { myState = States.spiegel_cel; }
+        if (Input.GetKeyDown(KeyCode.O)) { myState = States.gang_1; }
+        else if (Input.GetKeyDown(KeyCode.T)) { myState = States.spiegel_cel; }
     }
 
     //**************************************************
@@ -184,10 +202,10 @@ public class TextController : MonoBehaviour {
                     "Druk 'V' om de Vloer te onderzoeken.\n" +
                     "Druk 'K' om de Kast te onderzoeken.\n" +
                     "Druk 'C' om weer veilig terug terug je Cel in te gaan en de deur dicht te trekken.";
-        if (Input.GetKeyDown(KeyCode.T))        { myState = States.trap_0; }
-        else if (Input.GetKeyDown(KeyCode.V))   { myState = States.vloer_0; }
-        else if (Input.GetKeyDown(KeyCode.K))   { myState = States.kastdeur_0; }
-        else if (Input.GetKeyDown(KeyCode.K))   { myState = States.spiegel_cel; }
+        if (Input.GetKeyDown(KeyCode.T)) { myState = States.trap_0; }
+        else if (Input.GetKeyDown(KeyCode.V)) { myState = States.vloer_0; }
+        else if (Input.GetKeyDown(KeyCode.K)) { myState = States.kastdeur_0; }
+        else if (Input.GetKeyDown(KeyCode.K)) { myState = States.spiegel_cel; }
     }
 
     void trap_0()
@@ -197,12 +215,12 @@ public class TextController : MonoBehaviour {
                     "Je bent gesnapt en wordt hardhandig terug de cel in gestopt.\n\n" +
                     //Acties
                     "Druk 'O' om het spel opnieuw te starten.";
-        if      (Input.GetKeyDown(KeyCode.O))    {myState = States.cel;}
+        if (Input.GetKeyDown(KeyCode.O)) { myState = States.cel; }
     }
 
     void vloer_0()
     {
-        text.text = "De vloer van de gang is echt smerig. Je kunt zien dat hij al een tijd niet is schoon" + 
+        text.text = "De vloer van de gang is echt smerig. Je kunt zien dat hij al een tijd niet is schoon" +
                     "gemaakt. Niet heel verrassend denk je terwijl je denkt aan de minstens net zo smerige " +
                     "lakens! UGH!\n\n" +
                     "Tussen het stof en vuil zie je iets liggen, een haarclip...\n" +
@@ -210,8 +228,8 @@ public class TextController : MonoBehaviour {
                     //Acties
                     "Druk 'P' om de haarclip te Pakken.\n" +
                     "Druk 'K' om verder te Kijken in de gang.";
-        if      (Input.GetKeyDown(KeyCode.P))   {myState = States.gang_3;}
-        else if (Input.GetKeyDown(KeyCode.K))   {myState = States.gang_2; }
+        if (Input.GetKeyDown(KeyCode.P)) { myState = States.gang_3; }
+        else if (Input.GetKeyDown(KeyCode.K)) { myState = States.gang_2; }
     }
 
     void kastdeur_0()
@@ -222,7 +240,7 @@ public class TextController : MonoBehaviour {
                     "Je hebt geen geluk, de kast zit op slot...\n\n" +
                     //Acties
                     "Druk op 'K' om verder te Kijken in de gang";
-        if      (Input.GetKeyDown(KeyCode.K))    {myState = States.gang_2;}
+        if (Input.GetKeyDown(KeyCode.K)) { myState = States.gang_2; }
     }
 
     void gang_2()
@@ -233,10 +251,10 @@ public class TextController : MonoBehaviour {
                     "Druk 'V' om de Vloer te onderzoeken.\n" +
                     "Druk 'K' om de Kast te onderzoeken.\n" +
                     "Druk 'C' om weer veilig terug terug je Cel in te gaan en de deur dicht te trekken.";
-        if      (Input.GetKeyDown(KeyCode.T))   { myState = States.trap_0; }
-        else if (Input.GetKeyDown(KeyCode.V))   { myState = States.vloer_0; }
-        else if (Input.GetKeyDown(KeyCode.K))   { myState = States.kastdeur_0; }
-        else if (Input.GetKeyDown(KeyCode.K))   { myState = States.spiegel_cel; }
+        if (Input.GetKeyDown(KeyCode.T)) { myState = States.trap_0; }
+        else if (Input.GetKeyDown(KeyCode.V)) { myState = States.vloer_0; }
+        else if (Input.GetKeyDown(KeyCode.K)) { myState = States.kastdeur_0; }
+        else if (Input.GetKeyDown(KeyCode.K)) { myState = States.spiegel_cel; }
     }
 
     //**************************************************
@@ -255,7 +273,7 @@ public class TextController : MonoBehaviour {
                     "Druk 'V' om de vloer nog een keer te onderzoeken.\n" +
                     "Druk 'K' om de kastdeur nog een keer te onderzoeken.\n" +
                     "Druk 'C' om weer veilig terug terug je Cel in te gaan en de deur dicht te trekken.";
-        if      (Input.GetKeyDown(KeyCode.T)) { myState = States.trap_1; }
+        if (Input.GetKeyDown(KeyCode.T)) { myState = States.trap_1; }
         else if (Input.GetKeyDown(KeyCode.V)) { myState = States.vloer_1; }
         else if (Input.GetKeyDown(KeyCode.K)) { myState = States.kastdeur_1; }
         else if (Input.GetKeyDown(KeyCode.C)) { myState = States.spiegel_cel; }
@@ -269,7 +287,7 @@ public class TextController : MonoBehaviour {
                     "gesnapt en wordt hardhandig terug de cel in gestopt.\n\n" +
                     //Acties
                     "Druk 'O' om het spel opnieuw te starten.";
-        if      (Input.GetKeyDown(KeyCode.O)) { myState = States.cel; }
+        if (Input.GetKeyDown(KeyCode.O)) { myState = States.cel; }
     }
 
     void vloer_1()
@@ -277,7 +295,7 @@ public class TextController : MonoBehaviour {
         text.text = "De vloer is nog steeds smerig en vies. Er ligt niks anders dan stof en vuil." +
                     //Acties
                     "Druk 'T' om terug te gaan en de gang verder te onderzoeken.";
-        if      (Input.GetKeyDown(KeyCode.T)) { myState = States.gang_3; }
+        if (Input.GetKeyDown(KeyCode.T)) { myState = States.gang_3; }
     }
 
     void kastdeur_1()
@@ -287,7 +305,7 @@ public class TextController : MonoBehaviour {
                     //Acties
                     "Druk 'O' om de haarclip te gebruiken om de deur open te maken.\n" +
                     "Druk 'T' om terug te gaan en de gang verder te onderzoeken.";
-        if      (Input.GetKeyDown(KeyCode.O)) { myState = States.in_de_kast_1; }
+        if (Input.GetKeyDown(KeyCode.O)) { myState = States.in_de_kast_1; }
         else if (Input.GetKeyDown(KeyCode.T)) { myState = States.gang_3; }
     }
 
@@ -297,14 +315,14 @@ public class TextController : MonoBehaviour {
 
     void in_de_kast_1()
     {
-        text.text = "Je hebt kast geopend en loopt naar binnen.\n" +
+        text.text = "Je staat in de veel te grote 'kast'...\n" +
                     "Het is 'gezellig' hok met allemaal schoonmaak spullen, prullenbakken en kleren." +
                     //Acties
                     "Druk 'S' om de Schoonmaakspullen te bekijken.\n" +
                     "Druk 'P' om de Prullenbakken te onderzoeken.\n" +
                     "Druk 'K' om de Kleren te onderzoeken.\n" +
                     "Druk 'D' de kast Dicht te doen en terug naar de gang te gaan.";
-        if      (Input.GetKeyDown(KeyCode.S)) { myState = States.in_de_kast_schoonmaakspullen; }
+        if (Input.GetKeyDown(KeyCode.S)) { myState = States.in_de_kast_schoonmaakspullen; }
         else if (Input.GetKeyDown(KeyCode.V)) { myState = States.in_de_kast_prullenbakken; }
         else if (Input.GetKeyDown(KeyCode.K)) { myState = States.in_de_kast_kleren; }
         else if (Input.GetKeyDown(KeyCode.C)) { myState = States.gang_3; }
@@ -337,7 +355,7 @@ public class TextController : MonoBehaviour {
                     //Acties
                     "Druk 'A' om de kleren aan te trekken\n" +
                     "Druk 'O' om de kast verder te Onderzoeken";
-        if      (Input.GetKeyDown(KeyCode.A)) { myState = States.kleren_aan_kast; }
+        if (Input.GetKeyDown(KeyCode.A)) { myState = States.kleren_aan_kast; }
         else if (Input.GetKeyDown(KeyCode.O)) { myState = States.in_de_kast_1; }
     }
 
@@ -350,29 +368,125 @@ public class TextController : MonoBehaviour {
         text.text = "Daar sta je dan...\n" +
                     "In het concierge hok van een gevangenis met de kleren van de schoonmaker aan...\n\n" +
                     "Je vader en moeder kunnen trots op je zijn!" +
+                    "En nu...?!" +
                     //Acties
                     "Druk 'S' om de Schoonmaakspullen te bekijken.\n" +
                     "Druk 'P' om de Prullenbakken te onderzoeken.\n" +
                     "Druk 'K' om de Kleren uit te trekken.\n" +
                     "Druk 'D' de kast Dicht te doen en terug naar de gang te gaan.";
-        if (Input.GetKeyDown(KeyCode.S)) { myState = States.in_de_kast_schoonmaakspullen; }
-        else if (Input.GetKeyDown(KeyCode.V)) { myState = States.in_de_kast_prullenbakken; }
-      //  else if (Input.GetKeyDown(KeyCode.K)) { myState = States.in_de_kast_2; }
-        else if (Input.GetKeyDown(KeyCode.C)) { myState = States.gang_3; }
+        if (Input.GetKeyDown(KeyCode.S)) { myState = States.kleren_aan_in_de_kast_schoonmaakspullen; }
+        else if (Input.GetKeyDown(KeyCode.P)) { myState = States.kleren_aan_in_de_kast_prullenbakken; }
+        else if (Input.GetKeyDown(KeyCode.K)) { myState = States.in_de_kast_1; }
+        else if (Input.GetKeyDown(KeyCode.D)) { myState = States.schoonmaak_kleren_aan_in_de_gang; }
     }
 
-    void in_de_kast_2()
+    void kleren_aan_in_de_kast_schoonmaakspullen()
     {
-        text.text = "Je hebt kast geopend en loopt naar binnen.\n" +
-                    "Het is 'gezellig' hok met allemaal schoonmaak spullen, prullenbakken en kleren." +
+        text.text = "Er staan rijen hoog schoonmaakspullen opgestapeld. Misschien zouden ze die " +
+                    "eens een keer moeten gebruiken in plaats van ze hier opslaan. Om bijvoorbeeld " +
+                    "de vloer en de lakens eens te wassen.\n\n" +
+                    "Misschien moet je het zelf gaan doen, je hebt tenslotte het pakje er al voor aan...hahahaha\n\n" +
+                    //Acties
+                    "Druk 'O' om de kast verder te Onderzoeken";
+        if (Input.GetKeyDown(KeyCode.O)) { myState = States.kleren_aan_kast; }
+    }
+
+    void kleren_aan_in_de_kast_prullenbakken()
+    {
+        text.text = "De prullenbakken zijn helemaal leeg, het lijkt wel of hier nooit wordt schoongemaakt" +
+                    "Vandaar dat dit 'mooie' pakje hier niks hangt te doen...\n" +
+                    "Hmmmm...\n\n" +
+                    //Acties
+                    "Druk 'O' om de kast verder te Onderzoeken";
+        if (Input.GetKeyDown(KeyCode.O)) { myState = States.kleren_aan_kast; }
+    }
+
+    //**************************************************
+    // Schoonmaak kleren aan in de gang
+    //**************************************************
+
+    void schoonmaak_kleren_aan_in_de_gang()
+    {
+        text.text = "" +
                     //Acties
                     "Druk 'S' om de Schoonmaakspullen te bekijken.\n" +
                     "Druk 'P' om de Prullenbakken te onderzoeken.\n" +
-                    "Druk 'K' om de Kleren te onderzoeken.\n" +
+                    "Druk 'K' om toch nog eens de Kast te bekijken.\n" +
                     "Druk 'D' de kast Dicht te doen en terug naar de gang te gaan.";
-        if (Input.GetKeyDown(KeyCode.S)) { myState = States.in_de_kast_schoonmaakspullen; }
-        else if (Input.GetKeyDown(KeyCode.V)) { myState = States.in_de_kast_prullenbakken; }
-       // else if (Input.GetKeyDown(KeyCode.K)) { myState = States.in_de_kast_kleren; }
-        else if (Input.GetKeyDown(KeyCode.C)) { myState = States.gang_3; }
+        if      (Input.GetKeyDown(KeyCode.T)) { myState = States.schoonmaak_kleren_trap_op; }
+        else if (Input.GetKeyDown(KeyCode.V)) { myState = States.vloer_1; }
+        else if (Input.GetKeyDown(KeyCode.K)) { myState = States.schoonmaak_kleren_aan_terug_naar_kast; }
+        else if (Input.GetKeyDown(KeyCode.C)) { myState = States.spiegel_cel; }
+    }
+
+    void schoonmaak_kleren_trap_op()
+    {
+        text.text = "Daar ga je, in je prachtige nieuwe outfit de trap op.\n" +
+                    "Als je bovenaan de trap komt zie je een bewaker en hij ziet jou, \n" +
+                    "jullie kijken elkaar recht aan...";
+                    //Acties
+                    "Druk 'Z' om te Zwaaien en om te draaien.\n" +
+                    "Druk 'H' om Hallo te zeggen en door te lopen.\n" +
+                    "Druk 'A' om te proberen de bewaker Aan te vallen.";
+        if      (Input.GetKeyDown(KeyCode.Z)) { myState = States.schoonmaak_kleren_aan_in_de_gang; }
+        else if (Input.GetKeyDown(KeyCode.H)) { myState = States.schoonmaak_kleren_bovenaan_trap; }
+        else if (Input.GetKeyDown(KeyCode.A)) { myState = States.schoonmaak_kleren_bewaker_aanvallen; }
+    }
+
+    void schoonmaak_kleren_aan_vloer_onderzoeken()
+    {
+        text.text = "Nog steeds smerig daar veranderen je nieuwe kleren helemaal niks aan" +
+                    "Je hebt ook niet de stiekeme behoefte om de boel schoon te gaan maken...!";
+                    //Acties
+                    "Druk 'O' om Op te staan.";
+        if (Input.GetKeyDown(KeyCode.T)) { myState = States.schoonmaak_kleren_aan_in_de_gang; }
+    }
+
+    void schoonmaak_kleren_aan_terug_naar_kast()
+    {
+        text.text = "Daar sta je dan...\n" +
+                    "In het concierge hok van een gevangenis met de kleren van de schoonmaker aan...\n\n" +
+                    "Je vader en moeder kunnen trots op je zijn!" +
+                    "En nu...?!" +
+                    //Acties
+                    "Druk 'S' om de Schoonmaakspullen te bekijken.\n" +
+                    "Druk 'P' om de Prullenbakken te onderzoeken.\n" +
+                    "Druk 'K' om de Kleren uit te trekken.\n" +
+                    "Druk 'D' de kast Dicht te doen en terug naar de gang te gaan.";
+        if      (Input.GetKeyDown(KeyCode.S)) { myState = States.kleren_aan_in_de_kast_schoonmaakspullen; }
+        else if (Input.GetKeyDown(KeyCode.P)) { myState = States.kleren_aan_in_de_kast_prullenbakken; }
+        else if (Input.GetKeyDown(KeyCode.K)) { myState = States.in_de_kast_1; }
+        else if (Input.GetKeyDown(KeyCode.D)) { myState = States.schoonmaak_kleren_aan_in_de_gang; }
+    }
+
+    void schoonmaak_kleren_aan_terug_in_cel()
+    {
+        text.text = "Terug je cel in, dat voelt toch niet goed... \n\n" +
+                    "Je ziet jezelf in de spiegel, hahaha je ziet er niet uit!" +
+                    //Acties
+                    "Druk 'T' om de Terug naar de gang te gaan.";
+        if (Input.GetKeyDown(KeyCode.T)) { myState = States.schoonmaak_kleren_aan_in_de_gang; }
+    }
+
+    void schoonmaak_kleren_bewaker_aanvallen()
+    {
+        text.text = "Ja? Dat leek je een goed idee? \n" +
+                    "Met je haarclip en je schoonmakers pakje...\n\n" +
+                    //Acties
+                    "Druk 'O' om het spel opnieuw te starten.";
+        if (Input.GetKeyDown(KeyCode.O)) { myState = States.cel; }
+    }
+
+    //**************************************************
+    // Schoonmaak kleren aan bovenaan de trap
+    //**************************************************
+
+    void schoonmaak_kleren_bovenaan_trap()
+    {
+        text.text = "" +
+                    // Acties
+                    "";
+        if (Input.GetKeyDown(KeyCode.S)) { myState = States.---; }
+        else if (Input.GetKeyDown(KeyCode.P)) { myState = States.---; }
     }
 }
