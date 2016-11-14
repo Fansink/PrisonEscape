@@ -489,9 +489,9 @@ public class TextController : MonoBehaviour {
                     "Druk op 'B' om te vragen waar de deur naar buiten is, je moet je water weggooien.\n" +
                     "Druk op 'V' om je te verontschuldigen en te vragen waar je beter je best zou moeten doen.\n" +
                     "Druk op 'W' om te zeggen 'Tsja, ik zou er ook niet in willen Wonen, maarja ik krijg ook maar per uur betaald.'";
-        if (Input.GetKeyDown(KeyCode.B)) { myState = States.---; }
-        else if (Input.GetKeyDown(KeyCode.V)) { myState = States.-- -; }
-        else if (Input.GetKeyDown(KeyCode.W)) { myState = States.-- -; }
+        //if (Input.GetKeyDown(KeyCode.B)) { myState = States.---; }
+        //else if (Input.GetKeyDown(KeyCode.V)) { myState = States.-- -; }
+        //else if (Input.GetKeyDown(KeyCode.W)) { myState = States.-- -; }
     }
 
     void schoonmaak_kleren_bewaker_aanvallen()
