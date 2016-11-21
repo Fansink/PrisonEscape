@@ -510,7 +510,7 @@ public class TextController : MonoBehaviour {
 
     void schoonmaak_kleren_snelste_weg()
     {
-        text.text = "'Tuurlijk, daar die linker deur!'" +
+        text.text = "'Tuurlijk, daar die linker deur!'\n\n" +
                     // Acties
                     "Druk 'B' om de bewaker te bedanken en naar buiten te lopen";
         if (Input.GetKeyDown(KeyCode.B)) { myState = States.buitendeur; }
@@ -538,7 +538,7 @@ public class TextController : MonoBehaviour {
     {
         text.text = "'Dan mag je wel wat beter je best doen.' zegt de bewaker. Natuurlijk wel terecht want de \n" +
                     "gevangenis is echt een zooitje. 'Jaja, ik weet het ik ben pas net begonnen en ik kan niet \n'" +
-                    "alles tegelijk." +
+                    "alles tegelijk.\n\n" +
                     //Acties
                     "Druk op 'B' om te vragen waar de deur naar buiten is, je moet je water weggooien.\n" +
                     "Druk op 'W' om te zeggen 'Tsja, ik zou er ook niet in willen wonen, maarja ik krijg ook maar per uur betaald.'";
@@ -567,7 +567,7 @@ public class TextController : MonoBehaviour {
     void buitendeur()
     {
         text.text = "Het is je gelukt!!\n" +
-                    "Je staat buiten, je bent vrij die smerige gevangenis kan je achter je laten!" +
+                    "Je staat buiten, je bent vrij die smerige gevangenis kan je achter je laten!\n\n" +
                     //Acties
                     "Druk 'O' om het spel opnieuw te starten.";
         if (Input.GetKeyDown(KeyCode.O)) { myState = States.cel; }
