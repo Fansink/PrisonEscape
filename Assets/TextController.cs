@@ -18,7 +18,10 @@ public class TextController : MonoBehaviour {
         schoonmaak_kleren_aan_in_de_gang, schoonmaak_kleren_trap_op, schoonmaak_kleren_aan_vloer_onderzoeken,
         schoonmaak_kleren_aan_terug_naar_kast, schoonmaak_kleren_aan_terug_in_cel,
         // Schoonmaak kleren aan bovenaan de trap
-        schoonmaak_kleren_bovenaan_trap, schoonmaak_kleren_niet_wc, schoonmaak_kleren_bewaker_aanvallen
+        schoonmaak_kleren_bovenaan_trap, schoonmaak_kleren_niet_wc, schoonmaak_kleren_eigen_zaken_bemoeien,
+        schoonmaak_kleren_schaken, schoonmaak_kleren_snelste_weg, schoonmaak_kleren_doof,
+        schoonmaak_kleren_lol_in_pakje, schoonmaak_kleren_bewaker_aanvallen, buitendeur,
+        schoonmaak_kleren_betaald_per_uur
     }
 
     private States myState;
@@ -64,7 +67,16 @@ public class TextController : MonoBehaviour {
         else if (myState == States.schoonmaak_kleren_bewaker_aanvallen) { schoonmaak_kleren_bewaker_aanvallen(); }
 
         else if (myState == States.schoonmaak_kleren_bovenaan_trap) { schoonmaak_kleren_bovenaan_trap(); }
-        
+        else if (myState == States.schoonmaak_kleren_niet_wc) { schoonmaak_kleren_niet_wc(); }
+        else if (myState == States.schoonmaak_kleren_eigen_zaken_bemoeien) { schoonmaak_kleren_eigen_zaken_bemoeien(); }
+        else if (myState == States.schoonmaak_kleren_schaken) { schoonmaak_kleren_schaken(); }
+        else if (myState == States.schoonmaak_kleren_snelste_weg) { schoonmaak_kleren_snelste_weg(); }
+        else if (myState == States.schoonmaak_kleren_doof) { schoonmaak_kleren_doof(); }
+        else if (myState == States.schoonmaak_kleren_niet_wc) { schoonmaak_kleren_niet_wc(); }
+        else if (myState == States.schoonmaak_kleren_lol_in_pakje) { schoonmaak_kleren_lol_in_pakje(); }
+        else if (myState == States.schoonmaak_kleren_bovenaan_trap) { schoonmaak_kleren_bovenaan_trap(); }
+        else if (myState == States.schoonmaak_kleren_bovenaan_trap) { schoonmaak_kleren_bovenaan_trap(); }
+        else if (myState == States.schoonmaak_kleren_betaald_per_uur) { schoonmaak_kleren_betaald_per_uur(); }
     }
     void cel()
     {
@@ -465,10 +477,52 @@ public class TextController : MonoBehaviour {
                     "Druk 'T' om te zeggen:'Owh, dit is niet de wc?'\n" +
                     "Druk 'S' om te zeggen:'Schoonmaken, wat denk je dan, dat ik voor de lol in zo'n pakje rond loop?' \n" +
                     "Druk 'A' om de bewaker aan te vallen";
-        //if      (Input.GetKeyDown(KeyCode.N)) { myState = States.---; }
+        if      (Input.GetKeyDown(KeyCode.N)) { myState = States.schoonmaak_kleren_eigen_zaken_bemoeien; }
         else if (Input.GetKeyDown(KeyCode.T)) { myState = States.schoonmaak_kleren_niet_wc; }
-        //else if (Input.GetKeyDown(KeyCode.S)) { myState = States.-- -; }
+        else if (Input.GetKeyDown(KeyCode.S)) { myState = States.schoonmaak_kleren_lol_in_pakje; }
         else if (Input.GetKeyDown(KeyCode.A)) { myState = States.schoonmaak_kleren_bewaker_aanvallen; }
+    }
+
+    void schoonmaak_kleren_eigen_zaken_bemoeien()
+    {
+        text.text = "'Pardon?!' zegt de bewaker en hij komt dreigend op je af " +
+                    "'Wat zei je?!'\n\n" +
+                    // Acties;
+                    "Druk 'S' om te zeggen:'Ik ben te moe om te schaken! Weet jij waar de uitgang is?'\n" +
+                    "Druk 'D' om te zeggen:'Of je worst lust!! Bemoei je met je eigen zaken!'\n" +
+                    "Druk 'A' om de bewaker aan te vallen";
+        if      (Input.GetKeyDown(KeyCode.S)) { myState = States.schoonmaak_kleren_schaken; }
+        else if (Input.GetKeyDown(KeyCode.D)) { myState = States.schoonmaak_kleren_doof; }
+        else if (Input.GetKeyDown(KeyCode.A)) { myState = States.schoonmaak_kleren_bewaker_aanvallen; }
+    }
+
+    void schoonmaak_kleren_schaken()
+    {
+        text.text = "'hahaha...Schaken?? hahaha...Waar heb je het over?' lacht de bewaker \n" +
+                    "'tsja...schaken kan inderdaad erg vermoeiend zijn!' lacht hij verder \n" +
+                    "Gelukkig heb je een makkelijk baantje!\n\n" +
+                    // Acties
+                    "Druk 'G' om te zeggen:'Je hebt Gelijk, kun je me nu vertellen wat de snelste weg naar buiten is?'\n" +
+                    "Druk 'S' om te zeggen:'Moet zeggen dikkop heb je je eigen baantje wel eens bekeken?!'\n";
+        if      (Input.GetKeyDown(KeyCode.G)) { myState = States.schoonmaak_kleren_snelste_weg; }
+        else if (Input.GetKeyDown(KeyCode.S)) { myState = States.schoonmaak_kleren_doof; }
+    }
+
+    void schoonmaak_kleren_snelste_weg()
+    {
+        text.text = "'Tuurlijk, daar die linker deur!'" +
+                    // Acties
+                    "Druk 'B' om de bewaker te bedanken en naar buiten te lopen";
+        if (Input.GetKeyDown(KeyCode.B)) { myState = States.buitendeur; }
+    }
+
+    void schoonmaak_kleren_doof()
+    {
+        text.text = "Ja? Dat leek je een goed idee? \n" +
+                    "De bewaker uitschelden? \n\n" +
+                    //Acties
+                    "Druk 'O' om het spel opnieuw te starten.";
+        if (Input.GetKeyDown(KeyCode.O)) { myState = States.cel; }
     }
 
     void schoonmaak_kleren_niet_wc()
@@ -487,17 +541,33 @@ public class TextController : MonoBehaviour {
                     "alles tegelijk." +
                     //Acties
                     "Druk op 'B' om te vragen waar de deur naar buiten is, je moet je water weggooien.\n" +
-                    "Druk op 'V' om je te verontschuldigen en te vragen waar je beter je best zou moeten doen.\n" +
-                    "Druk op 'W' om te zeggen 'Tsja, ik zou er ook niet in willen Wonen, maarja ik krijg ook maar per uur betaald.'";
-        //if (Input.GetKeyDown(KeyCode.B)) { myState = States.---; }
-        //else if (Input.GetKeyDown(KeyCode.V)) { myState = States.-- -; }
-        //else if (Input.GetKeyDown(KeyCode.W)) { myState = States.-- -; }
+                    "Druk op 'W' om te zeggen 'Tsja, ik zou er ook niet in willen wonen, maarja ik krijg ook maar per uur betaald.'";
+        if      (Input.GetKeyDown(KeyCode.B)) { myState = States.schoonmaak_kleren_snelste_weg; }
+        else if (Input.GetKeyDown(KeyCode.W)) { myState = States.schoonmaak_kleren_betaald_per_uur; }
+    }
+
+    void schoonmaak_kleren_betaald_per_uur()
+    {
+        text.text = "'Owh echt?! Dan snap ik het inderdaad' zegt de bewaker. 'Het zijn ook van die krenten hier!' \n\n" +
+                    //Acties
+                    "Druk op 'G' om de bewaker gelijk te geven en nogmaals naar de deur naar buiten te vragen\n";
+        if (Input.GetKeyDown(KeyCode.B)) { myState = States.schoonmaak_kleren_snelste_weg; }
+        else if (Input.GetKeyDown(KeyCode.W)) { myState = States.schoonmaak_kleren_betaald_per_uur; }
     }
 
     void schoonmaak_kleren_bewaker_aanvallen()
     {
         text.text = "Ja? Dat leek je een goed idee? \n" +
                     "Met je haarclip en je schoonmakers pakje...\n\n" +
+                    //Acties
+                    "Druk 'O' om het spel opnieuw te starten.";
+        if (Input.GetKeyDown(KeyCode.O)) { myState = States.cel; }
+    }
+
+    void buitendeur()
+    {
+        text.text = "Het is je gelukt!!\n" +
+                    "Je staat buiten, je bent vrij die smerige gevangenis kan je achter je laten!" +
                     //Acties
                     "Druk 'O' om het spel opnieuw te starten.";
         if (Input.GetKeyDown(KeyCode.O)) { myState = States.cel; }
